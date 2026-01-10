@@ -21,6 +21,7 @@ public class JwtUtil {
     public Claims extractClaims(String token){
         return Jwts.parserBuilder()
                 .setSigningKey(getSigningKey())
+                .setAllowedClockSkewSeconds(300)
                 .build()
                 .parseClaimsJws(token)
                 .getBody();

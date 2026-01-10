@@ -45,7 +45,7 @@ public class JwtAuthFilter implements GlobalFilter {
         }
         catch (Exception e){
             exchange.getResponse().setStatusCode(HttpStatus.UNAUTHORIZED);
-            exchange.getResponse().setComplete();
+            return exchange.getResponse().setComplete();
         }
 
         return chain.filter(exchange);
